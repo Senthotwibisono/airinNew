@@ -1,7 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// UserSystem
+require __DIR__.'/userSystem/userSystem.php';
+require __DIR__.'/getData/master.php';
